@@ -2,8 +2,12 @@ group 'tech.ugma.education'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
+
+mainClassName = "tech.ugma.education.jfoenixtableview.launcher.Launcher"
+
 
 repositories {
     mavenCentral()

@@ -1,12 +1,10 @@
-package tech.ugma.education.jfoenix.model;
+package tech.ugma.education.jfoenixtableview.model;
 
-import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.util.Callback;
 
 public class Item extends RecursiveTreeObject<Item> {
     IntegerProperty itemNumber = new SimpleIntegerProperty();

@@ -1,14 +1,9 @@
-package tech.ugma.education.jfoenix.controller;
+package tech.ugma.education.jfoenixtableview.controller;
 
-import com.jfoenix.controls.JFXTreeView;
-import com.jfoenix.controls.RecursiveTreeItem;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
-import tech.ugma.education.jfoenix.model.Item;
+import tech.ugma.education.jfoenixtableview.model.Item;
 
 public class Controller {
 

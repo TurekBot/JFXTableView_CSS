@@ -1,4 +1,4 @@
-package tech.ugma.education.jfoenix.launcher;
+package tech.ugma.education.jfoenixtableview.launcher;
 
 import com.jfoenix.controls.JFXDecorator;
 import javafx.application.Application;
