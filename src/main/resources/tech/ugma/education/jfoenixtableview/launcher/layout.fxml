@@ -16,7 +16,7 @@
    <right>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableView" editable="true" stylesheets="@../style.css">
+            <TableView fx:id="tableView" editable="true" stylesheets="@../jfx-table-view.css">
                <columns>
                   <TableColumn fx:id="itemNumberColumn" prefWidth="98.0" text="Item Number" />
                   <TableColumn fx:id="skuColumn" prefWidth="99.0" text="Sku" />
