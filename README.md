@@ -4,6 +4,8 @@ An attempt to nail down the CSS necessary to have a "JFXTableView" since as of J
 ## Help Wanted
 I'm not sure I've got it down pat, so feel free to add on.
 
+[jfx-table-view.css](src/main/resources/tech/ugma/education/jfoenixtableview/jfx-table-view.css)
+
 ### Things left to fine tune
  * Scroll Bars
  * Anything else you can think of/see?
