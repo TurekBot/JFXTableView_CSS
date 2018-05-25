@@ -1,0 +1,231 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+ /*
+ * The following CSS has been adapted from jfx-tree-table-view.css and then an attempt was made
+ * to make it conform to the Material Design Guidelines.
+ * It's a good attempt, but imperfect—please do fix anything find wrong.
+ */
+
+/*
+   Here I define some values that are used throughout the rest of the stylesheet. The asterisk selector (*) implies that these
+   values are accessible to everything.
+
+   Though ".root" as a selector may be the traditional thing to do here, I'm using "*", instead, to widen the scope and
+   allow any node to access these stylesheet-wide attributes, not just the root node. See this link: https://stackoverflow.com/a/49207678/5432315
+ */
+* {
+    -fx-font-family: "Roboto"; /*Apply google Roboto font to all UI components*/
+
+    /** Primary Color **/
+    /* For scheme, see https://material.io/color/#!/?view.left=0&view.right=0&primary.color=00BCD4 */
+    -primary-color: #00BCD4;
+    -light-primary-color: #62efff;
+    -dark-primary-color: #008ba3;
+
+    /** Secondary Color **/
+    /* For scheme, see https://material.io/color/#!/?view.left=0&view.right=0&primary.color=00BCD4 */
+    -secondary-color: -primary-color;
+    -light-secondary-color: -light-primary-color;
+    -dark-secondary-color: -dark-primary-color;
+
+    -light-gray: #F5F5F6;
+    -dark-gray: #E1E2E1;
+
+    -fx-base: -dark-gray;
+    -fx-accent: -dark-secondary-color;
+
+    -fx-focus-color: -dark-primary-color;
+    -fx-faint-focus-color: transparent;
+}
+
+.table-view {
+    -fx-table-color: -light-secondary-color;
+    -fx-table-rippler-color: rgba(82, 100, 174, 0.6);
+
+     /* Styles a selected row. See https://material.io/guidelines/components/data-tables.html#interaction-figure-caption-0*/
+    -fx-selection-bar: #F5F5F5;
+
+    -fx-selection-bar-non-focused: -fx-selection-bar;
+
+    /* Gets rid of the even odd highlighting */
+    -fx-control-inner-background-alt: -fx-control-inner-background;
+
+    /*TODO: can't figure out how to get the lines to go all the way across; currently they don't.
+            You can try a using a dummy .padding-column for now.*/
+    /*-fx-padding: 0 24 0 24;*/
+}
+
+/* This causes weird behavior all around, the buttons change background size once focused, the rows move—I don't like it. */
+/*
+:focused {
+    -fx-background-color: -fx-table-color, -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: -1.4, 0, 1;
+    -fx-background-radius: 1.4, 0, 0;
+    *//*....*//*
+    -fx-padding: 1; *//* 0.083333em; *//*
+}*/
+
+.table-view:focused .table-row-cell:selected{
+    -fx-table-cell-border-color: -fx-table-color;
+    -fx-text-fill: BLACK;
+}
+
+.table-view:focused .table-row-cell:selected .table-cell {
+    -fx-text-fill: BLACK;
+}
+
+
+.table-row-cell:filled:hover {
+    /*Allows Row Hover Effect. See https://material.io/design/components/data-tables.html#behavior*/
+    -fx-background: #EEEEEE;
+}
+
+
+.table-view .column-header,
+.table-view .column-header-background,
+.table-view .column-header-background .filler {
+    -fx-background-color: TRANSPARENT;
+}
+
+
+.table-view .column-header {
+    /* Gets rid of the borders in the column header */
+    -fx-border-width: 0 0 0 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: rgb(0,0,0,0.54); /* 54% black, per MDG */
+    -fx-padding: 16 0 16 0;
+}
+
+.table-view .column-header .arrow, .table-view .column-header .sort-order-dot {
+    -fx-background-color: #949494;
+}
+
+
+.table-view .column-header-background {
+    -fx-border-width: 0 0.0 1 0;
+    -fx-border-color: #F3F3F3;
+}
+
+/* Default Alignment. We'll just assume its text until you say otherwise.
+   See: https://material.io/guidelines/components/data-tables.html#data-tables-structure */
+.table-view .table-column {
+    -fx-alignment: CENTER-LEFT;
+    -fx-background-insets: 0px;
+}
+
+.table-view .table-column > .label {
+    /* Aligns the header label */
+    -fx-alignment: CENTER-LEFT;
+ }
+
+/* Add this style class to columns containing text to make them left aligned.
+   See: https://material.io/guidelines/components/data-tables.html#data-tables-structure */
+ .text-column {
+     -fx-alignment: CENTER-LEFT !important;
+ }
+
+ .text-column > .label {
+    /* Aligns the header label */
+    -fx-alignment: CENTER-LEFT;
+ }
+
+ /* Add this style class to columns containing numbers to make them right aligned.
+    See: https://material.io/guidelines/components/data-tables.html#data-tables-structure */
+ .numeric-column {
+     -fx-alignment: CENTER-RIGHT;
+ }
+
+ .numeric-column > .label {
+    /* Aligns the header label */
+    -fx-alignment: CENTER_RIGHT;
+ }
+
+.table-view .table-cell {
+    -fx-border-width: 0 0 0 0;
+    -fx-padding: 16 0 10 0; /* Note that this should be 16 on top and bottom, but something is causing to look uneven, so I compensate.*/
+}
+
+.table-view .column-overlay {
+    -fx-background-color: -fx-table-color;
+}
+
+.table-view .column-resize-line, .table-view .column-drag-header {
+    -fx-background-color: -fx-table-rippler-color;
+}
+
+
+.table-row-cell > .disclosure-node > .arrow {
+    -fx-background-color: -fx-text-fill;
+    -fx-padding: 0.333333em 0.229em 0.333333em 0.229em; /* 4 */
+    -fx-shape: "M 0 -3.5 L 4 0 L 0 3.5 z";
+}
+
+.table-row-cell .jfx-text-field {
+    -fx-focus-color: rgb(82, 100, 174);
+}
+
+.table-row-cell .jfx-text-field:error {
+    -jfx-focus-color: #D34336;
+    -jfx-unfocus-color: #D34336;
+}
+
+.table-row-cell .jfx-text-field .error-label {
+    -fx-text-fill: #D34336;
+    -fx-font-size: 0.75em;
+}
+
+.table-row-cell .jfx-text-field .error-icon {
+    -fx-fill: #D34336;
+    -fx-font-size: 1.0em;
+}
+
+.table-row-cell:grouped {
+    -fx-background-color: rgb(230, 230, 230);
+}
+
+.table-view .menu-item:focused {
+    -fx-background-color: -fx-table-color;
+
+}
+
+.table-view .menu-item .label {
+    -fx-padding: 5 0 5 0;
+}
+
+.table-view .virtual-flow .clipped-container .sheet .table-row-cell .table-cell .text {
+    /* Note, that something about this doesn't work. The text isn't colored right.*/
+    -fx-text-fill: rgb(0,0,0,.87); /* 87% black per MDG */
+}
+
+/*
+    Since we can't get the table lines to go all the way across the table by using -fx-padding, we're going to use these
+    dummy columns. Make sure that they are not editable, nor sortable in your FXML, as there is no CSS way of doing that.
+    See this link for what we're trying to replicate: https://material.io/design/components/data-tables.html#specs
+*/
+.padding-column {
+    -fx-min-width: 24px;
+    -fx-pref-width: 24px;
+    -fx-max-width: 24px;
+
+}
+
+
