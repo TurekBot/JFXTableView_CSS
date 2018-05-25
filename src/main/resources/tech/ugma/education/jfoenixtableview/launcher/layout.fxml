@@ -17,18 +17,20 @@
    </padding>
    <right>
        <VBox BorderPane.alignment="CENTER">
-           <TableView fx:id="tableViewMatchingMaterialDesign" editable="true"
-                      stylesheets="@../material-design-table-view.css">
+           <TableView fx:id="tableViewMatchingMaterialDesign" editable="true" stylesheets="@../material-design-table-view.css">
                <columns>
-                   <TableColumn editable="false" resizable="false" sortable="false" styleClass="padding-column"/>
-                   <TableColumn fx:id="materialDesignItemNumberColumn" prefWidth="98.0" text="Item Number"/>
-                   <TableColumn fx:id="materialDesignSkuColumn" prefWidth="99.0" text="Sku"/>
-                   <TableColumn editable="false" resizable="false" sortable="false" styleClass="padding-column"/>
+                   <TableColumn editable="false" resizable="false" sortable="false" styleClass="padding-column" />
+                   <TableColumn fx:id="materialDesignItemNumberColumn" prefWidth="98.0" text="Item Number" />
+                   <TableColumn fx:id="materialDesignSkuColumn" prefWidth="99.0" text="Sku" />
+                   <TableColumn editable="false" resizable="false" sortable="false" styleClass="padding-column" />
                </columns>
+            <VBox.margin>
+               <Insets left="10.0" right="10.0" />
+            </VBox.margin>
            </TableView>
            <HBox alignment="CENTER">
-               <Label text="TableView to match"/>
-               <Hyperlink onAction="#linkToMaterialDesignGuidelines" text="Material Design Guidelines"/>
+               <Label text="TableView to match" />
+               <Hyperlink onAction="#linkToMaterialDesignGuidelines" text="Material Design Guidelines" />
            </HBox>
        </VBox>
    </right>
@@ -36,12 +38,15 @@
        <VBox BorderPane.alignment="CENTER">
            <TableView fx:id="tableViewMatchingJFXTreeTableView" editable="true" stylesheets="@../jfx-table-view.css">
               <columns>
-                  <TableColumn fx:id="jfxItemNumberColumn" prefWidth="98.0" text="Item Number"/>
-                  <TableColumn fx:id="jfxSkuColumn" prefWidth="99.0" text="Sku"/>
+                  <TableColumn fx:id="jfxItemNumberColumn" prefWidth="98.0" text="Item Number" />
+                  <TableColumn fx:id="jfxSkuColumn" prefWidth="99.0" text="Sku" />
               </columns>
+            <VBox.margin>
+               <Insets left="10.0" right="10.0" />
+            </VBox.margin>
            </TableView>
            <HBox alignment="CENTER">
-               <Label text="TableView to match JFXTreeTableView"/>
+               <Label text="TableView to match JFXTreeTableView" />
            </HBox>
        </VBox>
    </center>
@@ -49,13 +54,16 @@
        <VBox BorderPane.alignment="CENTER">
            <JFXTreeTableView>
               <columns>
-                  <TreeTableColumn prefWidth="98.0" text="Item Number"/>
-                  <TreeTableColumn prefWidth="99.0" text="Sku"/>
+                  <TreeTableColumn prefWidth="98.0" text="Item Number" />
+                  <TreeTableColumn prefWidth="99.0" text="Sku" />
               </columns>
            </JFXTreeTableView>
            <HBox alignment="CENTER">
-               <Label text="JFXTreeTableView"/>
+               <Label text="JFXTreeTableView" />
            </HBox>
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </BorderPane.margin>
        </VBox>
    </left>
 </BorderPane>
